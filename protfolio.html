@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="AI & Technology portfolio showcasing projects, skills and contact information."
+    />
+    <title>AI Technological — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0f1724;
+        --card: #0b1220;
+        --muted: #98a0b3;
+        --accent1: #7c3aed; /* violet */
+        --accent2: #06b6d4; /* cyan */
+        --glass: rgba(255, 255, 255, 0.04);
+        --radius: 14px;
+        color-scheme: dark;
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(12, 17, 23, 1) 0%,
+          rgba(15, 23, 36, 1) 60%
+        );
+        color: #e6eef8;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.45;
+        padding: 40px 24px;
+      }
+
+      /* Container */
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo {
+        width: 54px;
+        height: 54px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--accent1), var(--accent2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        letter-spacing: -0.6px;
+        color: white;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      }
+      .brand h1 {
+        font-size: 18px;
+        margin: 0;
+      }
+      .brand p {
+        margin: 0;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .nav {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 8px 12px;
+        border-radius: 10px;
+        color: inherit;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .btn.primary {
+        background: linear-gradient(90deg, var(--accent1), var(--accent2));
+        border: none;
+        color: #021022;
+      }
+
+      /* Hero */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 28px;
+        align-items: center;
+        margin-bottom: 34px;
+      }
+      .hero-left h2 {
+        font-size: 34px;
+        margin: 0 0 10px;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .chips {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+      .chip {
+        background: var(--glass);
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 13px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+      }
+
+      /* AI visual */
+      .hero-right {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        padding: 20px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(6px);
+      }
+      .ai-canvas {
+        width: 100%;
+        height: 260px;
+        border-radius: 12px;
+        background: radial-gradient(
+            circle at 20% 10%,
+            rgba(124, 58, 237, 0.15),
+            transparent 8%
+          ),
+          radial-gradient(
+            circle at 80% 90%,
+            rgba(6, 182, 212, 0.12),
+            transparent 8%
+          ),
+          linear-gradient(180deg, #061021, #081424);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .pulse {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        mix-blend-mode: screen;
+        opacity: 0.8;
+      }
+      .ai-desc {
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 12px;
+      }
+
+      /* Sections */
+      section {
+        margin-bottom: 28px;
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .card {
+        background: var(--card);
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        box-shadow: 0 6px 20px rgba(2, 6, 23, 0.6);
+      }
+      .card h3 {
+        margin: 0 0 8px;
+      }
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      /* Project card */
+      .project {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+      .project .thumb {
+        height: 160px;
+        background: linear-gradient(
+          90deg,
+          rgba(124, 58, 237, 0.18),
+          rgba(6, 182, 212, 0.12)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+      }
+      .project .meta {
+        padding: 12px;
+      }
+      .project .meta p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .tags {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+      .tag {
+        font-size: 12px;
+        padding: 6px 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      /* Contact */
+      form .row {
+        display: flex;
+        gap: 12px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        background: transparent;
+        color: inherit;
+        font-size: 14px;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 18px;
+        border-top: 1px dashed rgba(255, 255, 255, 0.03);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* Responsive */
+      @media (max-width: 920px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .grid-3 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 640px) {
+        body {
+          padding: 18px;
+        }
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* subtle animations */
+      .glow {
+        animation: glow 3.6s ease-in-out infinite;
+      }
+      @keyframes glow {
+        0% {
+          filter: drop-shadow(0 0 0 rgba(124, 58, 237, 0));
+        }
+        50% {
+          filter: drop-shadow(0 12px 30px rgba(124, 58, 237, 0.12));
+        }
+        100% {
+          filter: drop-shadow(0 0 0 rgba(124, 58, 237, 0));
+        }
+      }
+
+      /* accessible focus */
+      :focus {
+        outline: 3px solid rgba(124, 58, 237, 0.18);
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <div class="logo">AI</div>
+          <div>
+            <h1>MD Siam — AI Technological</h1>
+            <p class="muted">Frontend Developer • AI · ML integrations</p>
+          </div>
+        </div>
+        <nav class="nav">
+          <button class="btn" onclick="scrollToSection('projects')">
+            Projects
+          </button>
+          <button class="btn" onclick="scrollToSection('about')">About</button>
+          <a class="btn primary" href="#contact">Hire Me</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-left">
+            <h2>Building smart interfaces & delightful AI experiences.</h2>
+            <p class="muted">
+              I design and build production-ready web apps that integrate modern
+              AI tools — chat assistants, embeddings, visualizations and
+              inference pipelines.
+            </p>
+            <div class="chips" aria-hidden>
+              <span class="chip">React</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">TensorFlow.js</span>
+              <span class="chip">WebGPU</span>
+              <span class="chip">NLP</span>
+              <span class="chip">UI/UX</span>
+            </div>
+            <div style="margin-top: 18px; display: flex; gap: 10px">
+              <button class="btn primary" onclick="scrollToSection('projects')">
+                See Projects
+              </button>
+              <a class="btn" href="#contact">Contact</a>
+            </div>
+          </div>
+
+          <aside class="hero-right card">
+            <div class="ai-canvas" id="aiCanvas" aria-hidden>
+              <svg
+                class="pulse"
+                viewBox="0 0 600 400"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <linearGradient id="g1" x1="0" x2="1">
+                    <stop offset="0" stop-color="#7c3aed" stop-opacity="0.35" />
+                    <stop offset="1" stop-color="#06b6d4" stop-opacity="0.35" />
+                  </linearGradient>
+                </defs>
+                <circle cx="120" cy="80" r="140" fill="url(#g1)" />
+                <circle cx="480" cy="320" r="100" fill="url(#g1)" />
+              </svg>
+              <div style="position: relative; z-index: 2; text-align: center">
+                <div style="font-size: 13px; color: var(--muted)">
+                  Live Prototype
+                </div>
+                <div
+                  id="typing"
+                  style="font-weight: 700; font-size: 18px; margin-top: 8px"
+                >
+                  AI assistant — ready.
+                </div>
+              </div>
+            </div>
+            <p class="ai-desc">
+              Interactive demos: embeddings search, conversational UI, on-device
+              inference with WebAssembly/WebGPU, and visualizations.
+            </p>
+          </aside>
+        </section>
+
+        <section id="projects">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 12px;
+            "
+          >
+            <h3 style="margin: 0">Selected Projects</h3>
+            <p class="muted" style="margin: 0; font-size: 13px">
+              Click a project to open details
+            </p>
+          </div>
+          <div class="grid grid-3">
+            <article
+              class="card project"
+              tabindex="0"
+              onclick="openProject(1)"
+              onkeypress="if(event.key==='Enter') openProject(1)"
+            >
+              <div class="thumb">AI Chatbot Demo</div>
+              <div class="meta">
+                <h4 style="margin: 0">SmartChat — Conversational UI</h4>
+                <p class="muted">
+                  Hybrid on-device + cloud assistant with context-aware prompts
+                  and embeddings.
+                </p>
+                <div class="tags">
+                  <span class="tag">React</span
+                  ><span class="tag">Embeddings</span
+                  ><span class="tag">WebSocket</span>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="card project"
+              tabindex="0"
+              onclick="openProject(2)"
+              onkeypress="if(event.key==='Enter') openProject(2)"
+            >
+              <div class="thumb">Visual AI Studio</div>
+              <div class="meta">
+                <h4 style="margin: 0">Visual AI Studio</h4>
+                <p class="muted">
+                  Image classification and style-transfer demos running
+                  in-browser using TensorFlow.js.
+                </p>
+                <div class="tags">
+                  <span class="tag">TensorFlow.js</span
+                  ><span class="tag">Canvas</span
+                  ><span class="tag">WebWorker</span>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="card project"
+              tabindex="0"
+              onclick="openProject(3)"
+              onkeypress="if(event.key==='Enter') openProject(3)"
+            >
+              <div class="thumb">Realtime Analytics</div>
+              <div class="meta">
+                <h4 style="margin: 0">Realtime Analytics</h4>
+                <p class="muted">
+                  Streaming analytics dashboard with model-backed predictions
+                  and anomaly detection.
+                </p>
+                <div class="tags">
+                  <span class="tag">D3</span><span class="tag">WebSocket</span
+                  ><span class="tag">ML</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="about" class="grid grid-2">
+          <div class="card">
+            <h3>About Me</h3>
+            <p class="muted">
+              I build user-centric web apps that leverage ML models, embeddings
+              and browser acceleration so AI feels fast, private and trustable.
+              I enjoy bridging design and engineering — shipping delightful,
+              maintainable products.
+            </p>
+            <div style="margin-top: 12px">
+              <strong>Focus:</strong>
+              <ul class="muted">
+                <li>Client-side ML inference (WebGL / WebGPU / WASM)</li>
+                <li>Conversational UIs and retrieval-augmented generation</li>
+                <li>Data viz for model outputs and monitoring</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Skills & Tools</h3>
+            <div class="skill-list" style="margin-top: 8px">
+              <span class="tag">JavaScript</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">React</span>
+              <span class="tag">TensorFlow.js</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">D3</span>
+              <span class="tag">Docker</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact">
+          <div class="card">
+            <h3>Contact</h3>
+            <p class="muted">
+              Want to collaborate on an AI project or need frontend help? Send a
+              quick message.
+            </p>
+            <form
+              id="contactForm"
+              onsubmit="handleContact(event)"
+              style="margin-top: 12px"
+            >
+              <div class="row">
+                <input id="name" placeholder="Your name" required />
+                <input id="email" placeholder="Email" type="email" required />
+              </div>
+              <div style="margin-top: 10px">
+                <input id="subject" placeholder="Subject" />
+              </div>
+              <div style="margin-top: 10px">
+                <textarea
+                  id="message"
+                  rows="5"
+                  placeholder="Tell me about your project..."
+                  required
+                ></textarea>
+              </div>
+              <div
+                style="
+                  margin-top: 12px;
+                  display: flex;
+                  gap: 8px;
+                  align-items: center;
+                "
+              >
+                <button class="btn primary" type="submit">Send Message</button>
+                <div id="formMsg" class="muted" style="font-size: 13px"></div>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div>© <span id="year"></span> MD Siam — AI Technological</div>
+        <div class="muted">
+          Made with JavaScript • <span id="perf"></span>ms
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // small utilities
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (!el) return window.scrollTo({ top: 0, behavior: "smooth" });
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      // typing effect in hero
+      (function typing() {
+        const messages = [
+          "AI assistant — ready.",
+          "Embeddings search: 3ms",
+          "On-device inference demo",
+        ];
+        let idx = 0;
+        let i = 0;
+        const el = document.getElementById("typing");
+        function loop() {
+          const txt = messages[idx];
+          el.textContent = txt.slice(0, i);
+          i++;
+          if (i > txt.length) {
+            setTimeout(() => {
+              i = 0;
+              idx = (idx + 1) % messages.length;
+              setTimeout(loop, 150);
+            }, 1200);
+          } else setTimeout(loop, 40);
+        }
+        loop();
+      })();
+
+      // perf measure
+      window.addEventListener("load", () => {
+        const t = Math.round(performance.now());
+        document.getElementById("perf").textContent = t;
+      });
+
+      // Project modal pattern (simple)
+      function openProject(id) {
+        const data = {
+          1: {
+            title: "SmartChat — Conversational UI",
+            desc: "Hybrid on-device + cloud assistant. Demo shows retrieval augmented generation with semantic search.",
+          },
+          2: {
+            title: "Visual AI Studio",
+            desc: "In-browser image classification and style-transfer using TensorFlow.js.",
+          },
+          3: {
+            title: "Realtime Analytics",
+            desc: "Streaming and anomaly detection dashboard with model-backed predictions.",
+          },
+        }[id] || { title: "Project", desc: "Details coming soon." };
+
+        // simple custom modal using alert for portability — replace with nice modal as needed
+        alert(
+          data.title +
+            "\n\n" +
+            data.desc +
+            "\n\nReplace this with a project details modal in your app."
+        );
+      }
+
+      // contact form — demo only (does not send email). Replace with your backend endpoint.
+      function handleContact(e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const subject = document.getElementById("subject").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!name || !email || !message) {
+          showFormMsg("Please complete required fields.");
+          return;
+        }
+
+        // demo: simulate send
+        showFormMsg("Sending...");
+        setTimeout(() => {
+          showFormMsg("Message sent — thank you!", true);
+          document.getElementById("contactForm").reset();
+        }, 900);
+      }
+      function showFormMsg(msg, ok) {
+        const el = document.getElementById("formMsg");
+        el.textContent = msg;
+        el.style.color = ok ? "#8ef0c0" : "#f3b0b0";
+      }
+
+      // small accessibility: keyboard shortcut 'p' to jump to projects
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "p") scrollToSection("projects");
+      });
+    </script>
+  </body>
+</html>
